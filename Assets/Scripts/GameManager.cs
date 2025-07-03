@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     
-    //[SerializeField] private Balloon[] baloonPrefab;
     [SerializeField] private Balloon balloonPrefab;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private TMP_Text scoreText;
@@ -21,17 +20,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject mainMenuPanel;   
     [SerializeField] private GameObject pausePanel;   
     public int lives = 5;
-
     private int score;
     private float multipliedTime;
-    //private float timeCounter;
     
     private void Awake()
     {
         if (!Instance) Instance = this;
         scoreText.gameObject.SetActive(false);
         livePointsText.gameObject.SetActive(false);
-
     }
 
     private void Update()

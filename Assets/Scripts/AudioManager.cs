@@ -1,5 +1,7 @@
 using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip fillSound;
     [SerializeField] private AudioClip popSound;
+    [SerializeField] private Slider volumeSlider;
+    [SerializeField] private TMP_Text text;
 
     private void Awake()
     {
@@ -23,5 +27,11 @@ public class AudioManager : MonoBehaviour
     public void PlayPopSound()
     {
         audioSource.PlayOneShot(popSound);
+    }
+
+    public void Voulume() {
+        audioSource.volume =volumeSlider.value;
+        text.text = $"{volumeSlider.value * 100}%";
+        ;
     }
 }

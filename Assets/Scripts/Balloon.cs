@@ -28,20 +28,26 @@ public class Balloon : MonoBehaviour
 
     private void OnMouseDown()
     {
-        clicksToPop--;
-        Debug.Log($"Pressed");
-
-        if (clicksToPop <= 0)
+        if (Time.timeScale == 1) 
         {
-            AudioManager.Instance.PlayPopSound();
-            GameManager.Instance.IncreaseScore();
-            Destroy(gameObject);
-            return;
-        }
-        
-        AudioManager.Instance.PlayFillSound();
 
-        StartCoroutine(IncreaseScale());
+            clicksToPop--;
+            Debug.Log($"Pressed");
+
+            if (clicksToPop <= 0)
+            {
+                AudioManager.Instance.PlayPopSound();
+                GameManager.Instance.IncreaseScore();
+                Destroy(gameObject);
+                return;
+            }
+
+            AudioManager.Instance.PlayFillSound();
+
+            StartCoroutine(IncreaseScale());
+        }
+
+
     }
 
     private IEnumerator IncreaseScale()
